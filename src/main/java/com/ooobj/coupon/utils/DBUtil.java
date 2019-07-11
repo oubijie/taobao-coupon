@@ -1,4 +1,4 @@
-package com.entor.quan.db;
+package com.ooobj.coupon.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

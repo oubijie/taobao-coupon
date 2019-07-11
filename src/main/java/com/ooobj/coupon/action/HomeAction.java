@@ -1,28 +1,29 @@
-package com.entor.quan.action;
+package com.ooobj.coupon.action;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.alibaba.fastjson.JSON;
-import com.entor.quan.db.DBUtil;
-import com.entor.quan.po.Goods;
+import com.ooobj.coupon.bean.Goods;
+import com.ooobj.coupon.utils.DBUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GoodsJsonAction extends ActionSupport {
+public class HomeAction extends ActionSupport {
 
-	private int page;
-	private String result;
 	
+	private List<Goods> list;
+	
+	public HomeAction() {
+	}
+
 	public String execute() {
 
-		int size = 25;
-		int start = size*(page-1);
+		System.out.println("in home action...");
 		
-		String sql = "select * from item limit " + start + ", " + size;
+		String sql = "select * from item limit 25";
 		ResultSet rs = DBUtil.execSelectSql(sql);
-		List list = new ArrayList<Goods>();
+		list = new ArrayList<Goods>();
 		try {
 			while(rs.next()){
 				Goods g = new Goods();
@@ -39,28 +40,20 @@ public class GoodsJsonAction extends ActionSupport {
 			e.printStackTrace();
 		}
 		
-		result = JSON.toJSONString(list);
-		System.out.println(result);
+//		for(Goods g : list){
+//			System.out.println(g);
+//		}
 		
 		return SUCCESS;
 	}
 
-	public int getPage() {
-		return page;
+	public List<Goods> getList() {
+		return list;
 	}
 
-	public void setPage(int page) {
-		this.page = page;
+	public void setList(List<Goods> list) {
+		this.list = list;
 	}
-
-	public String getResult() {
-		return result;
-	}
-
-	public void setResult(String result) {
-		this.result = result;
-	}
-
 	
 	
 	

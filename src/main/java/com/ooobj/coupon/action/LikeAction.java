@@ -1,4 +1,4 @@
-package com.entor.quan.action;
+package com.ooobj.coupon.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;

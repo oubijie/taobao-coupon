@@ -1,4 +1,4 @@
-package com.entor.quan.po;
+package com.ooobj.coupon.bean;
 
 public class Goods {
 
