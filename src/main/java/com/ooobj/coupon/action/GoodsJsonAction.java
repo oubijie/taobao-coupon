@@ -20,7 +20,7 @@ public class GoodsJsonAction extends ActionSupport {
 		int size = 25;
 		int start = size*(page-1);
 		
-		String sql = "select * from item limit " + start + ", " + size;
+		String sql = "select * from goods limit " + start + ", " + size;
 		ResultSet rs = DBUtil.execSelectSql(sql);
 		List list = new ArrayList<Goods>();
 		try {
@@ -31,8 +31,8 @@ public class GoodsJsonAction extends ActionSupport {
 				g.setPicture(rs.getString(3));
 				g.setPrice(rs.getDouble(7));
 				g.setRealPrice(rs.getDouble(8));
-				g.setSales(rs.getInt(10));
-				g.setYhq(rs.getDouble(22));
+				g.setSales(rs.getInt(9));
+				g.setYhq(rs.getDouble(20));
 				list.add(g);
 			}
 		} catch (SQLException e) {
