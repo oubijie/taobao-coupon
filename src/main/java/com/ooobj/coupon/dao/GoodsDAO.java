@@ -28,8 +28,9 @@ public class GoodsDAO {
 				g.setGoodName(rs.getString("good_name"));
 				g.setGoodPic(rs.getString("good_pic"));
 				g.setPrice(rs.getDouble("price"));
+				g.setPromotePrice(rs.getDouble("promote_price"));
 				g.setSales(rs.getInt("sales"));
-				g.setCouponTitle(rs.getString("coupon_title"));
+				g.setCouponValue(rs.getDouble("coupon_value"));
 				list.add(g);
 			}
 			DBUtil.close(rs);

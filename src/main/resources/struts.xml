@@ -23,10 +23,6 @@
             <result>/WEB-INF/jsp/home.jsp</result>
         </action>
         
-        <action name="unlike" class="com.ooobj.coupon.action.LikeAction">
-            <result>/hello.jsp</result>
-        </action>
-        
         <action name="jsonpage" class="com.ooobj.coupon.action.GoodsJsonAction">
             <result type="json">
                 <!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
