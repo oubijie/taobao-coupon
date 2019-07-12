@@ -1,32 +1,72 @@
 package com.ooobj.coupon.bean;
 
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Goods {
 
-	private String id;
-	private String name;
-	private String picture;
+	private Long goodId;
+	private String goodName;
+	private String goodPic;
+	private String goodDetail;
+	private String category;
+	private String tbkUrl;
 	private Double price;
-	private Double realPrice;
+	private Double promotePrice;
 	private Integer sales;
-	private Double yhq;
+	private Double yjRate;
+	private Double yjValue;
+	private String sellerName;
+	private String sellerId;
+	private String sellerShop;
+	private String platform;
+	private String couponId;
+	private Integer couponAmount;
+	private Integer couponRemain;
+	private String couponTitle;
+	private Double couponValue;
+	private Date couponStartDate;
+	private Date couponEndDate;
+	private String conponUrl;
+	private String couponTbkUrl;
 	
-	public String getId() {
-		return id;
+	public Long getGoodId() {
+		return goodId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setGoodId(Long goodId) {
+		this.goodId = goodId;
 	}
-	public String getName() {
-		return name;
+	public String getGoodName() {
+		return goodName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setGoodName(String goodName) {
+		this.goodName = goodName;
 	}
-	public String getPicture() {
-		return picture;
+	public String getGoodPic() {
+		return goodPic;
 	}
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setGoodPic(String goodPic) {
+		this.goodPic = goodPic;
+	}
+	public String getGoodDetail() {
+		return goodDetail;
+	}
+	public void setGoodDetail(String goodDetail) {
+		this.goodDetail = goodDetail;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getTbkUrl() {
+		return tbkUrl;
+	}
+	public void setTbkUrl(String tbkUrl) {
+		this.tbkUrl = tbkUrl;
 	}
 	public Double getPrice() {
 		return price;
@@ -34,29 +74,137 @@ public class Goods {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	public Double getPromotePrice() {
+		return promotePrice;
+	}
+	public void setPromotePrice(Double promotePrice) {
+		this.promotePrice = promotePrice;
+	}
 	public Integer getSales() {
 		return sales;
 	}
 	public void setSales(Integer sales) {
 		this.sales = sales;
 	}
-	public Double getYhq() {
-		return yhq;
+	public Double getYjRate() {
+		return yjRate;
 	}
-	public void setYhq(Double yhq) {
-		this.yhq = yhq;
+	public void setYjRate(Double yjRate) {
+		this.yjRate = yjRate;
 	}
-	public Double getRealPrice() {
-		return realPrice;
+	public Double getYjValue() {
+		return yjValue;
 	}
-	public void setRealPrice(Double realPrice) {
-		this.realPrice = realPrice;
+	public void setYjValue(Double yjValue) {
+		this.yjValue = yjValue;
 	}
-	@Override
-	public String toString() {
-		return "Goods [id=" + id + ", name=" + name + ", picture=" + picture + ", price=" + price + ", realPrice="
-				+ realPrice + ", sales=" + sales + ", yhq=" + yhq + "]";
+	public String getSellerName() {
+		return sellerName;
+	}
+	public void setSellerName(String sellerName) {
+		this.sellerName = sellerName;
+	}
+	public String getSellerId() {
+		return sellerId;
+	}
+	public void setSellerId(String sellerId) {
+		this.sellerId = sellerId;
+	}
+	public String getSellerShop() {
+		return sellerShop;
+	}
+	public void setSellerShop(String sellerShop) {
+		this.sellerShop = sellerShop;
+	}
+	public String getPlatform() {
+		return platform;
+	}
+	public void setPlatform(String platform) {
+		this.platform = platform;
+	}
+	public String getCouponId() {
+		return couponId;
+	}
+	public void setCouponId(String couponId) {
+		this.couponId = couponId;
+	}
+	public Integer getCouponAmount() {
+		return couponAmount;
+	}
+	public void setCouponAmount(Integer couponAmount) {
+		this.couponAmount = couponAmount;
+	}
+	public Integer getCouponRemain() {
+		return couponRemain;
+	}
+	public void setCouponRemain(Integer couponRemain) {
+		this.couponRemain = couponRemain;
+	}
+	public String getCouponTitle() {
+		return couponTitle;
+	}
+	public void setCouponTitle(String couponTitle) {
+		this.couponTitle = couponTitle;
+		this.setCouponValueAndPromotePrice();
+	}
+	private void setCouponValueAndPromotePrice() {
+		if(this.price != null && this.couponTitle != null){
+			Pattern p = Pattern.compile("满\\d+元减(\\d+)元|(\\d+)元无条件券");
+			Matcher m = p.matcher(this.couponTitle);
+			if(m.matches()){
+				String valueStr = m.group(1)!=null ? m.group(1) : m.group(2);
+				this.couponValue = Double.parseDouble(valueStr);
+				this.promotePrice = new BigDecimal(this.price - this.couponValue).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+			}
+		}
+		
+	}
+	public Double getCouponValue() {
+		return couponValue;
+	}
+	public void setCouponValue(Double couponValue) {
+		this.couponValue = couponValue;
+	}
+	public Date getCouponStartDate() {
+		return couponStartDate;
+	}
+	public void setCouponStartDate(Date couponStartDate) {
+		this.couponStartDate = couponStartDate;
+	}
+	public Date getCouponEndDate() {
+		return couponEndDate;
+	}
+	public void setCouponEndDate(Date couponEndDate) {
+		this.couponEndDate = couponEndDate;
+	}
+	public String getConponUrl() {
+		return conponUrl;
+	}
+	public void setConponUrl(String conponUrl) {
+		this.conponUrl = conponUrl;
+	}
+	public String getCouponTbkUrl() {
+		return couponTbkUrl;
+	}
+	public void setCouponTbkUrl(String couponTbkUrl) {
+		this.couponTbkUrl = couponTbkUrl;
 	}
 	
+	@Override
+	public String toString() {
+		return "Goods [goodId=" + goodId + ", goodName=" + goodName + "]";
+	}
+	
+	
+	public static void main(String[] args) {
+		Goods g = new Goods();
+		g.setPrice(1000.0);
+		g.setCouponTitle("3元无条件券");
+		
+		
+		System.out.println(g.getCouponValue());
+		System.out.println(g.getPrice());
+		System.out.println(g.getPromotePrice());
+	}
 	
 }

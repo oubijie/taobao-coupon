@@ -81,23 +81,23 @@
 							<s:iterator id="g" value="list">
 								<li class=" g_over"><a
 									href="#"
-									class="img" target="_blank"> <img src="${g.picture }"></a>
+									class="img" target="_blank"> <img src="${g.goodPic }"></a>
 									<div class="goods-padding">
 										<div class="title">
 											<a target="_blank" href="detail?id=xxxxx"> <i
-												class="tag tag-tmall fl" title="天猫"></i>${g.name }
+												class="tag tag-tmall fl" title="天猫"></i>${g.goodName }
 											</a>
 										</div>
 										<div class="goods-num-type">
 											<span class="old-price fl">原价 <i>${g.price }</i></span> <span
 												class="goods-num fr"><button name="unlike"
-													data-gid="${g.id }">不喜欢</button></span> <span class="goods-num fr">销量
+													data-gid="${g.goodId }">不喜欢</button></span> <span class="goods-num fr">销量
 												<i>${g.sales }</i>
 											</span>
 										</div>
 										<div class="coupon-wrap clearfix">
-											<span class="price"><i>￥</i><span>${g.realPrice }</span>
-											</span><b class="coupon fr"><i>${g.yhq }</i> 元券</b>
+											<span class="price"><i>￥</i><span>${g.promotePrice }</span>
+											</span><b class="coupon fr"><i>${g.couponValue }</i> 元券</b>
 										</div>
 									</div> <em class="border_l_b border"></em> <em
 									class="border_l_t border"></em> <em class="border_r_b border"></em>
@@ -160,25 +160,23 @@
  
  function appendGoods(data){
 	 $.each($.parseJSON(data), function(){
-		 
-		 
 		 _html = "<li class=\" g_over\">"+
          "<a href=\"#\" class=\"img\" target=\"_blank\"> "+
-         "<img src=\""+this.picture+"\"></a>"+
+         "<img src=\""+this.goodPic+"\"></a>"+
         " <div class=\"goods-padding\">"+
            "  <div class=\"title\">"+
          "        <a target=\"_blank\" href=\"detail?id=xxxxx\"> "+
-         "         <i class=\"tag tag-tmall fl\" title=\"天猫\"></i>"+this.name+
+         "         <i class=\"tag tag-tmall fl\" title=\"天猫\"></i>"+this.goodName+
          "        </a>"+
          "    </div>"+
          "    <div class=\"goods-num-type\">"+
-         "        <span class=\"old-price fl\">原价 <i>${g.price }</i></span> "+
-         "        <span class=\"goods-num fr\"><button name=\"unlike\" data-gid=\"${g.id }\">不喜欢</button></span>"+
-         "        <span class=\"goods-num fr\">销量 <i>${g.sales }</i></span>"+
+         "        <span class=\"old-price fl\">原价 <i>"+this.price+"</i></span> "+
+         "        <span class=\"goods-num fr\"><button name=\"unlike\" data-gid=\""+this.goodId+"\">不喜欢</button></span>"+
+         "        <span class=\"goods-num fr\">销量 <i>"+this.sales+"</i></span>"+
          "    </div>"+
          "    <div class=\"coupon-wrap clearfix\">"+
-         "        <span class=\"price\"><i>￥</i><span>${g.realPrice }</span> </span><b"+
-         "            class=\"coupon fr\"><i>${g.yhq }</i> 元券</b>"+
+         "        <span class=\"price\"><i>￥</i><span>"+this.promotePrice+"</span> </span><b"+
+         "            class=\"coupon fr\"><i>"+this.couponValue+"</i> 元券</b>"+
          "    </div>"+
          "</div>"+
          "<em class=\"border_l_b border\"></em> <em"+
