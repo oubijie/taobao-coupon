@@ -190,17 +190,45 @@ public class Goods {
 		this.couponTbkUrl = couponTbkUrl;
 	}
 	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((goodId == null) ? 0 : goodId.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Goods other = (Goods) obj;
+		if (goodId == null) {
+			if (other.goodId != null)
+				return false;
+		} else if (!goodId.equals(other.goodId))
+			return false;
+		return true;
+	}
 	@Override
 	public String toString() {
-		return "Goods [goodId=" + goodId + ", goodName=" + goodName + "]";
+		return "Goods [goodId=" + goodId + ", goodName=" + goodName + ", goodPic=" + goodPic + ", goodDetail="
+				+ goodDetail + ", category=" + category + ", tbkUrl=" + tbkUrl + ", price=" + price + ", promotePrice="
+				+ promotePrice + ", sales=" + sales + ", yjRate=" + yjRate + ", yjValue=" + yjValue + ", sellerName="
+				+ sellerName + ", sellerId=" + sellerId + ", sellerShop=" + sellerShop + ", platform=" + platform
+				+ ", couponId=" + couponId + ", couponAmount=" + couponAmount + ", couponRemain=" + couponRemain
+				+ ", couponTitle=" + couponTitle + ", couponValue=" + couponValue + ", couponStartDate="
+				+ couponStartDate + ", couponEndDate=" + couponEndDate + ", conponUrl=" + conponUrl + ", couponTbkUrl="
+				+ couponTbkUrl + "]";
 	}
-	
-	
 	public static void main(String[] args) {
 		Goods g = new Goods();
 		g.setPrice(1000.0);
 		g.setCouponTitle("3元无条件券");
-		
 		
 		System.out.println(g.getCouponValue());
 		System.out.println(g.getPrice());
