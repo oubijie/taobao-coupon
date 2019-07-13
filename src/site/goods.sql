@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2019-07-12 01:05:24
+Date: 2019-07-13 22:46:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,7 +25,7 @@ CREATE TABLE `goods` (
   `good_pic` varchar(200) NOT NULL,
   `good_detail` varchar(200) DEFAULT NULL,
   `category` varchar(50) DEFAULT NULL,
-  `tbk_url` varchar(200) DEFAULT NULL,
+  `tbk_url` varchar(300) DEFAULT NULL,
   `price` double(10,2) DEFAULT NULL,
   `promote_price` double(10,2) DEFAULT NULL,
   `sales` int(11) DEFAULT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `goods` (
   `coupon_value` double(10,2) DEFAULT NULL,
   `coupon_start_date` date DEFAULT NULL,
   `coupon_end_date` date DEFAULT NULL,
-  `conpon_url` varchar(200) DEFAULT NULL,
+  `conpon_url` varchar(300) DEFAULT NULL,
   `coupon_tbk_url` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`good_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -50,4 +50,4 @@ CREATE TABLE `goods` (
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES ('592692323396', '韩派便携式迷你榨汁机家用水果小型炸果汁机无线电动多功能榨汁杯', 'http://img.alicdn.com/bao/uploaded/i4/2975139354/O1CN01vn8Byt2IyBLHBzJb2_!!0-item_pic.jpg', 'http://item.taobao.com/item.htm?id=592692323396', '厨房电器', 'https://s.click.taobao.com/t?e=m%3D2%26s%3D3%2B6CwM8ELlEcQipKwQzePOeEDrYVVa64K7Vc7tFgwiFRAdhuF14FMdq8xFEIt2%2BARitN3%2FurF3wpjvOPPJrI%2BMtfwbm1adqNXQeI5fm2X9lyef0EAoWQheEdjznrGiQX0f7vtFmFRNs5H1S63Uo%2', '59.00', '39.00', '9384', '6.00', '3.54', 'hap韩派众鑫专卖店', '2975139354', 'hap韩派众鑫专卖店', '天猫', '2c173abdf46e470db0012ab58f8cadb4', '50000', '45138', '满59元减20元', '20.00', '2019-07-06', '2019-07-13', 'https://taoquan.taobao.com/coupon/unify_apply.htm?sellerId=2975139354&activityId=2c173abdf46e470db0012ab58f8cadb4', 'https://uland.taobao.com/coupon/edetail?e=SiALaDM92ucN%2BoQUE6FNzCJpYmvsuRwW1BgHPSWZ5eMg4XlEpjIU6bcZelJt%2Bzjya6S9WcEv29bPN7yJ9qI492S4ihT3PrBb19fIGjTfiD6b8NdHu3ngLoWWBrrjuk0gzlry8yOQbJf%2F3fI4S75CBzKYk%2ByEZGthonv6QcvcARY%3D&af=1&pid=mm_15024289_7176531_23800850');
+INSERT INTO `goods` VALUES ('1847234439', '壁挂式篮球板标准篮框家用室内外儿童篮板家居装饰成人篮筐篮球筐', 'http://img.alicdn.com/bao/uploaded/i2/13759683/TB23nv5X_PEK1JjSZFAXXbZuXXa_!!13759683.jpg', 'http://item.taobao.com/item.htm?id=1847234439', '运动/瑜伽/健身/球迷用品', 'https://s.click.taobao.com/t?e=m%3D2%26s%3Dz8w5oVASH3kcQipKwQzePOeEDrYVVa64LKpWJ%2Bin0XJRAdhuF14FMdq8xFEIt2%2BARitN3%2FurF3wpjvOPPJrI%2BMtfwbm1adqNXQeI5fm2X9lyef0EAoWQhbsa32Yj7LDnDovxAueVkmKAiQ8Mlr1t5MYMXU3NNCg%2F', '109.00', '104.00', '54', '0.45', '0.49', '13759683', 'davidchinese', '雨燕体育', '淘宝', 'f1cbe94372d845c4916a4c9b0946a3d2', '10000', '10000', '满88元减5元', '5.00', '2019-06-19', '2019-06-19', 'https://taoquan.taobao.com/coupon/unify_apply.htm?sellerId=13759683&activityId=f1cbe94372d845c4916a4c9b0946a3d2', 'https://uland.taobao.com/coupon/edetail?e=KNT9dDbW7gcN%2BoQUE6FNzCJpYmvsuRwW1BgHPSWZ5eMg4XlEpjIU6bcZelJt%2BzjyY4WKCQb%2FaGCIopifUwpu8diGlVXLfx%2BnC0DytI6FkgQRmXbjg3B8kPgHTYlSc%2BSpcndmbdIPctsbqt7%2F2V5YT%2BGmBoXWa%2Bob&af=1&pid=mm_15024289_7176531_23800850');
