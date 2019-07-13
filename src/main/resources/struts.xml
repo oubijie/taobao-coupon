@@ -13,8 +13,8 @@
             <result name="error">/WEB-INF/jsp/error.jsp</result>
         </global-results>
         
-        <action name="hello">
-            <result>
+        <action name="hello" class="com.ooobj.coupon.action.HelloAction">
+            <result name="success">
                 /WEB-INF/jsp/hello.jsp
             </result>
         </action>
