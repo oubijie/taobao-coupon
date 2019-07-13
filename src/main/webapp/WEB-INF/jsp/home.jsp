@@ -91,7 +91,7 @@
 										<div class="goods-num-type">
 											<span class="old-price fl">原价 <i>${g.price }</i></span> <span
 												class="goods-num fr"><button name="unlike"
-													data-gid="${g.goodId }">不喜欢</button></span> <span class="goods-num fr">销量
+													data-gid="${g.goodId }" onclick="hideUnlike(this)">不喜欢</button></span> <span class="goods-num fr">销量
 												<i>${g.sales }</i>
 											</span>
 										</div>
@@ -171,7 +171,7 @@
          "    </div>"+
          "    <div class=\"goods-num-type\">"+
          "        <span class=\"old-price fl\">原价 <i>"+this.price+"</i></span> "+
-         "        <span class=\"goods-num fr\"><button name=\"unlike\" data-gid=\""+this.goodId+"\">不喜欢</button></span>"+
+         "        <span class=\"goods-num fr\"><button name=\"unlike\" data-gid=\""+this.goodId+"\" onclick=\"hideUnlike(this)\">不喜欢</button></span>"+
          "        <span class=\"goods-num fr\">销量 <i>"+this.sales+"</i></span>"+
          "    </div>"+
          "    <div class=\"coupon-wrap clearfix\">"+
@@ -193,14 +193,12 @@
 </script>
 
 	<script type="text/javascript">
-$(function () {
-	$("button[name=unlike]").click(function(){
-		alert("I don't like it! " + $(this).attr('data-gid'));
-		$(this).parent().parent().parent().parent().hide();
-		_id = $(this).attr('data-gid');
-		$.get("unlike", { id: _id });
-	});
-});
-</script>
+	function hideUnlike(obj){
+		alert("I don't like it! " + $(obj).attr('data-gid'));
+        $(obj).parent().parent().parent().parent().hide();
+        _id = $(obj).attr('data-gid');
+        $.get("unlike", { id: _id });
+	}
+    </script>
 </body>
 </html>
