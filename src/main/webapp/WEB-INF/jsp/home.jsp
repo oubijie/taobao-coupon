@@ -10,7 +10,7 @@
 <meta name="renderer" content="webkit">
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <script src="./js/jquery.min.js"></script>
-<title>妈妈优惠券</title>
+<title>淘宝优惠券</title>
 </head>
 <body>
 	<div class="new_home">
