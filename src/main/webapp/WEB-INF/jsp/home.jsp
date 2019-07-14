@@ -89,7 +89,9 @@
 											</a>
 										</div>
 										<div class="goods-num-type">
-											<span class="old-price fl">原价 <i>${g.price }</i></span><span class="goods-num fr">销量
+											<span class="old-price fl">原价 <i>${g.price }</i></span><span
+                                                class="goods-num fr"><button name="unlike"
+                                                    data-gid="${g.goodId }">不喜欢</button></span><span class="goods-num fr">销量
 												<i>${g.sales }</i>
 											</span>
 										</div>
@@ -135,6 +137,16 @@
 		<li onclick="alert('暂未实现')"><img src="./images/kf.png" alt=""> <p>客服</p></li>
 		<li onclick="alert('暂未实现')"><img src="./images/feedback.png" alt=""> <p>反馈</p></li>
 	</ul>
-	
+
+<script type="text/javascript">
+$(function () {
+    $("button[name=unlike]").click(function(){
+        alert("I don't like it! " + $(this).attr('data-gid'));
+        $(this).parent().parent().parent().parent().hide();
+        _id = $(this).attr('data-gid');
+        $.get("unlike", { id: _id });
+    });
+});
+</script>
 </body>
 </html>
