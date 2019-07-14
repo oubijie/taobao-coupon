@@ -6,39 +6,20 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * 数据库连接工具类
+ * 简单的数据库连接工具类
+ * @author obj
+ * @email oubijie@139.com
+ * @vserion 2019年7月14日
+ *
  */
 public class DBUtil {
-	private static String driver;
-	private static String url;
-	private static String username;
-	private static String password;
-	// 静态代码块（只在类加载时执行一次）
-//	static {
-//		try {
-//			// 使用相对路径，JAVA工程的路径从工程名开始查找
-//			FileInputStream fis = new FileInputStream("config/db.properties");
-//			Properties pro = new Properties();
-//			// 加载数据
-//			pro.load(fis);
-//			driver = pro.getProperty("driver");
-//			url = pro.getProperty("url");
-//			username = pro.getProperty("username");
-//			password = pro.getProperty("password");
-//			System.out.println("数据库配置信息加载完毕...");
-//			fis.close();// 关闭
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
+	private static String driver = "com.mysql.jdbc.Driver";
+	private static String url = "jdbc:mysql://localhost:3306/yhq";
+	private static String username = "root";
+	private static String password = "root";
 
 	// 返回数据库连接
 	public static Connection getConn() {
-		driver = "com.mysql.jdbc.Driver";
-		url = "jdbc:mysql://localhost:3306/yhq";
-		username = "root";
-		password = "root";
-		
 		Connection conn = null;
 		try {
 			Class.forName(driver);
@@ -58,7 +39,6 @@ public class DBUtil {
 			conn = getConn();
 			sm = conn.createStatement();
 			System.out.println("sql:" + sql);
-			//执行更新sql
 			i = sm.executeUpdate(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
