@@ -7,11 +7,20 @@
     <constant name="struts.devMode" value="true"></constant>
     <package name="default" namespace="/" extends="struts-default">
     
+        <default-action-ref name="home" />
+        
+        <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </global-results>
+        
         <action name="hello" class="com.ooobj.coupon.action.HelloAction">
             <result name="success">
                 /WEB-INF/jsp/hello.jsp
             </result>
         </action>
         
+        <action name="home" class="com.ooobj.coupon.action.HomeAction">
+            <result>/WEB-INF/jsp/home.jsp</result>
+        </action>
     </package>
 </struts>
